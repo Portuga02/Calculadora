@@ -1,6 +1,12 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
   <title>Calculadora</title>
 
   <!-- Latest compiled and minified CSS -->
@@ -101,13 +107,30 @@
     </div>
   </div>
 
+
   <script type="text/javascript">
     function calcular(tipo, valor) {
+
       if (tipo === 'acao') {
+        if (valor === 'c') {
+          document.getElementById('resultado').value = '';
+        }
 
-      } elseif(tipo === 'valor'){
+        if (valor === '+' || valor === '-' || valor === '*' || valor === '/' || valor === '.') {
+          document.getElementById('resultado').value += valor;
+        }
 
+        if (valor === '=') {
+          let valor_campo = eval(document.getElementById('resultado').value);
+
+          document.getElementById('resultado').value = valor_campo;
+
+        }
+
+      } else if (tipo === 'valor') {
+        document.getElementById('resultado').value += valor;
       }
+
     }
 
 
